@@ -2,7 +2,7 @@ var express=require('express')
 var userRoute=require('./Route/userRoute')
 var dotenv=require('dotenv')
 var cors=require('cors')
-dotenv.config()
+dotenv.config();
 console.log(process.env.SEC_KEY)
 var app=express();
 app.use(cors())
@@ -19,9 +19,10 @@ app.get("/",((req,resp)=>{
  const genAI=new GoogleGenerativeAI(process.env.GEMINI_API_KEY)
  app.post("/chat", async(req,resp)=>{
     console.log("messsage " ,req.body.inputMessage)
+    //console.log(process.env.GEMINI_API_KEY)
   try{
     const message=req.body.inputMessage;
-    const model=genAI.getGenerativeModel({model:'gemini-1.5-flash'});
+    const model=genAI.getGenerativeModel({model: 'gemini-3-flash-preview',});
     const result=await model.generateContent(message)
     console.log(result.response.text())
      resp.json({status:true,reply:result.response.text()})  
