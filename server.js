@@ -25,7 +25,7 @@ app.post("/chat", async (req, resp) => {
   try {
     const message = req.body.inputMessage;
     const chatHistory = req.body.chatHistory; // <-- Pull the raw history string out of the incoming payload
-
+       console.log("yes----")
     if (!message) {
       return resp.status(400).json({ status: false, error: "Message prompt is required." });
     }
