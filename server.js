@@ -14,7 +14,7 @@ app.use(express.json())
 app.use(fileuploader());
 
 app.listen(2004,(()=>{
-    console.log("server started")
+    console.log("server started"
 }))
 app.use("/user", userRoute);
 app.get("/",((req,resp)=>{
